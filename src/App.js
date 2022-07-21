@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Buttons from "./components/Buttons";
+import { useState,memo } from "react";
 
 function App() {
+  const [value, setValue] = useState("");
+  // const [tempValue, setTempValue] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "flex",
+        width: "20%",
+        margin: "auto",
+        flexDirection: "column",
+        marginTop: "10%",
+      }}
+    >
+      <input type="text" value={value} onChange={()=>{}}/>
+      {/* <input type="text" value={tempValue} onChange={()=>{}}/> */}
+      <br />
+      <Buttons setValue={setValue}/>
     </div>
   );
 }
 
-export default App;
+export default memo(App);
