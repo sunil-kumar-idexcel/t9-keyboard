@@ -1,7 +1,6 @@
-import { Fragment, memo, useState } from "react";
+import { Fragment, memo } from "react";
 import Debounce from "./Debounce";
-const Buttons = ({ setValue}) => {
-    // const [repeated,setRepeated] = useState(true)
+const Buttons = ({ setValue }) => {
   const chars = [
     ["."],
     ["a", "b", "c"],
@@ -31,14 +30,10 @@ const Buttons = ({ setValue}) => {
                 function (chh) {
                   console.log("in func", chh);
                   setValue((prevState) => prevState + chh);
-                //   setValue((prevState) => {
-                //     setRepeated(false);
-                //     return prevState.slice(0,prevState.length-1) + chh
-                //   });
                 },
                 800,
                 chars[index],
-                setValue,
+                setValue
               )}
             >
               {index + 1}

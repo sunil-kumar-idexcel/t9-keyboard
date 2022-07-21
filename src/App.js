@@ -1,10 +1,9 @@
 import "./App.css";
 import Buttons from "./components/Buttons";
-import { useState,memo } from "react";
+import { useState, memo } from "react";
 
 function App() {
   const [value, setValue] = useState("");
-  // const [tempValue, setTempValue] = useState("");
 
   return (
     <div
@@ -16,10 +15,9 @@ function App() {
         marginTop: "10%",
       }}
     >
-      <input type="text" value={value} onChange={()=>{}}/>
-      {/* <input type="text" value={tempValue} onChange={()=>{}}/> */}
+      <input type="text" value={value} onChange={() => {}} />
       <br />
-      <Buttons setValue={setValue}/>
+      <Buttons setValue={setValue} />
     </div>
   );
 }
