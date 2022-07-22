@@ -7,7 +7,7 @@ const Debounce = (func, delay, charray) => {
     if (clickCount === charray.length) {
       clickCount = 0;
     }
-    let character = charray[clickCount];
+    const character = charray[clickCount];
 
     clickCount++;
     console.log("character", character);
