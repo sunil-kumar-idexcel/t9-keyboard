@@ -4,6 +4,7 @@ const Buttons = ({
   setValue,
   isUpperCase,
 }) => {
+  let repeatedClick = false;
   let initial_char_code;
   isUpperCase ? (initial_char_code = 65) : (initial_char_code = 97);
 
@@ -56,10 +57,12 @@ const Buttons = ({
               onClick={Debounce(
                 function (character) {
                   console.log("in func", character);
-                  setValue((prevState) => prevState + character);
+                  setValue((prevState) => {repeatedClick = true;return prevState.slice(0,prevState.length-1) + character});
                 },
                 800,
                 e.characters,
+                setValue,
+                repeatedClick
               )}
             >
               {e.key_no}
