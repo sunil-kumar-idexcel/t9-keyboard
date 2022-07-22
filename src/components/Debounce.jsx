@@ -1,9 +1,9 @@
 const Debounce = (func, delay, charray) => {
   let debounceTimer;
   let count = 0;
-  return function (chh) {
+  return function (characterArray) {
     console.log(charray);
-    chh = charray;
+    characterArray = charray;
     if (count === charray.length) {
       count = 0;
     }

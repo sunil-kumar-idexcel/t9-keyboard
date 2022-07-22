@@ -1,57 +1,46 @@
 import { Fragment, memo } from "react";
 import Debounce from "./Debounce";
-const Buttons = ({ setValue }) => {
-  const chars = [
-    {
-      id: 1,
-      key_no: 1,
-      characters: ["."],
-    },
-    {
-      id: 2,
-      key_no: 2,
-      characters: ["a", "b", "c"],
-    },
-    {
-      id: 3,
-      key_no: 3,
-      characters: ["d", "e", "f"],
-    },
-    {
-      id: 4,
-      key_no: 4,
-      characters: ["g", "h", "i"],
-    },
-    {
-      id: 5,
-      key_no: 5,
-      characters: ["j", "k", "l"],
-    },
-    {
-      id: 6,
-      key_no: 6,
-      characters: ["m", "n", "o"],
-    },
-    {
-      id: 7,
-      key_no: 7,
-      characters: ["p", "q", "r"],
-    },
-    {
-      id: 8,
-      key_no: 8,
-      characters: ["s", "t", "u"],
-    },
-    {
-      id: 9,
-      key_no: 9,
-      characters: ["v", "w", "x", "z"],
-    },
-  ];
+const Buttons = ({ setValue, isUpperCase }) => {
+  let initial_char;
+  isUpperCase ? (initial_char = 65) : (initial_char = 97);
+
+  //creating objects for number keys
+  const charss = [...Array(9)].map((e, index) => {
+    if (index === 0) {
+      let character = String.fromCharCode(46);
+      return {
+        id: index + 1,
+        key_no: index + 1,
+        characters: character,
+      };
+    } else if (index === 8) {
+      let charArray = [...Array(4)].map((e) =>
+        String.fromCharCode(initial_char++)
+      );
+
+      return {
+        id: index + 1,
+        key_no: index + 1,
+        characters: charArray,
+      };
+    } else {
+      let charArray = [...Array(3)].map((e) =>
+        String.fromCharCode(initial_char++)
+      );
+      return {
+        id: index + 1,
+        key_no: index + 1,
+        characters: charArray,
+      };
+    }
+  });
+
+  //end of creating objects for number keys
+
   return (
     <Fragment>
       <div>
-        {chars.map((e, index) => {
+        {charss.map((e, index) => {
           return (
             <button
               style={{

@@ -4,6 +4,7 @@ import { useState, memo } from "react";
 
 function App() {
   const [value, setValue] = useState("");
+  const [isUpperCase] = useState(false);
 
   return (
     <div
@@ -17,7 +18,7 @@ function App() {
     >
       <input type="text" value={value} onChange={() => {}} />
       <br />
-      <Buttons setValue={setValue} />
+      <Buttons setValue={setValue} isUpperCase={isUpperCase}/>
     </div>
   );
 }
