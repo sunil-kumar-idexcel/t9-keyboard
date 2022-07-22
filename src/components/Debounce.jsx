@@ -1,20 +1,21 @@
 const Debounce = (func, delay, charray) => {
   let debounceTimer;
-  let count = 0;
+  let clickCount = 0;
   return function (characterArray) {
     console.log(charray);
     characterArray = charray;
-    if (count === charray.length) {
-      count = 0;
+    if (clickCount === charray.length) {
+      clickCount = 0;
     }
-    let character = charray[count];
+    let character = charray[clickCount];
 
-    count++;
+    clickCount++;
     console.log("character", character);
+    
     const context = this;
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
-      count = 0;
+      clickCount = 0;
       func.apply(context, [character]);
     }, delay);
   };

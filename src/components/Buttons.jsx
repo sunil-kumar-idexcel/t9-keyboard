@@ -1,8 +1,11 @@
 import { Fragment, memo } from "react";
 import Debounce from "./Debounce";
-const Buttons = ({ setValue, isUpperCase }) => {
-  let initial_char;
-  isUpperCase ? (initial_char = 65) : (initial_char = 97);
+const Buttons = ({
+  setValue,
+  isUpperCase,
+}) => {
+  let initial_char_code;
+  isUpperCase ? (initial_char_code = 65) : (initial_char_code = 97);
 
   //creating objects for number keys
   const charss = [...Array(9)].map((e, index) => {
@@ -15,7 +18,7 @@ const Buttons = ({ setValue, isUpperCase }) => {
       };
     } else if (index === 8) {
       let charArray = [...Array(4)].map((e) =>
-        String.fromCharCode(initial_char++)
+        String.fromCharCode(initial_char_code++)
       );
 
       return {
@@ -25,7 +28,7 @@ const Buttons = ({ setValue, isUpperCase }) => {
       };
     } else {
       let charArray = [...Array(3)].map((e) =>
-        String.fromCharCode(initial_char++)
+        String.fromCharCode(initial_char_code++)
       );
       return {
         id: index + 1,
@@ -40,7 +43,7 @@ const Buttons = ({ setValue, isUpperCase }) => {
   return (
     <Fragment>
       <div>
-        {charss.map((e, index) => {
+        {charss.map((e) => {
           return (
             <button
               style={{
@@ -57,7 +60,6 @@ const Buttons = ({ setValue, isUpperCase }) => {
                 },
                 800,
                 e.characters,
-                setValue
               )}
             >
               {e.key_no}
