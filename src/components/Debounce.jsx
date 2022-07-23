@@ -19,7 +19,7 @@ const Debounce = (func, delay, charray,setValue,repeatedClick) => {
     }else{
       setValue((prevState)=>{
         let str = prevState+"~";
-        str = str.replace("~",character);
+        str = str.replace(/.$/,character);
         repeatedClick = true;
         return str;
       })

@@ -48,10 +48,10 @@ const Buttons = ({
           return (
             <button
               style={{
-                padding: "25px",
+                padding: "20px",
                 borderRadius: "50%",
-                margin: "5px",
-                width: "80px",
+                margin: "0px",
+                width: "30%",
               }}
               key={e.id}
               onClick={Debounce(
