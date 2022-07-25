@@ -18,7 +18,7 @@ const Buttons = ({
         characters: character,
       };
     } else if (index === 8) {
-      let charArray = [...Array(4)].map((e) =>
+      let charArray = [...Array(5)].map((e) =>
         String.fromCharCode(initial_char_code++)
       );
 
